@@ -1,26 +1,30 @@
 package com.company;
-
-public class Person {
+//extends nasleduet ID i count iz Record
+public class Person extends Record {
     //private ograni4ivaet dostup k peremennim
     //peremennaja dlja personi
-    private static int count = 0;
-    private int id;
+
     private String name;
     private String surname;
     private String phone;
-
+private  String email;
     //konstruktor dlja id s4et4ika
 
-    public Person() {
-        count ++;
-        id = count;
+    public String getEmail() {
+        return email;
     }
+
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
 
     //get i set pozvoljaet rabotat` s peremennimi
     // pravij klik i generate, tam vibiraem get set
-    public int getId() {
-        return id;
-    }
+
 
 
     public String getName() {
@@ -50,10 +54,19 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
-                " name=" + name + '\'' +
-                " surname=" + surname + '\'' +
-                " phone=" + phone + '\'' +
+                "id=" + getId() +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean hasSubstring(String str) {
+        return name.contains(str) || surname.contains(str) ||
+                phone.contains(str) ||
+                email.contains(str);
+
     }
 }
