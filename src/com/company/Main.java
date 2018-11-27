@@ -1,6 +1,5 @@
 package com.company;
 
-import javafx.animation.PauseTransition;
 
 import java.io.File;
 import java.io.IOException;
